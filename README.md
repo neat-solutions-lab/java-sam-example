@@ -17,7 +17,7 @@ and how to import the users, passwords and tokens from different sources.
 The only thing which the endpoints defined by the server do is reporting in plain english that the user authenticated 
 successfully and what is the user's recognized identity. An example server response looks like this:
 
-```bash
+```
 Well done demo-user! You are authorized basing on credentials stored in file. Your roles are [ROLE_USER]
 ```
  
@@ -109,19 +109,19 @@ method is not pointed, all the available methods will be enabled.
 with the prefix _SMS_ENV_USER_. Each eligible environment variable defines one user.
 For example, the `run-server.sh` script, 
 which is attached to this codebase, sets this environment variable is such a way:
-<br/>
-`SMS_ENV_USER_1="environment-demo-user:{noop}environment-demo-password USER"`
-<br/>
-This variable, together with the above configuration makes the server authenticate the user of the name
+
+    `SMS_ENV_USER_1="environment-demo-user:{noop}environment-demo-password USER"`
+
+    This variable, together with the above configuration makes the server authenticate the user of the name
 _environment-demo-user_ and the password _environment-demo-password_. The role assigned to the user is _USER_. 
 3. The list of the tokens used by the token based authentication method is to be read from the
 environment variables whose names begin with the _SMS_ENV_TOKEN_ prefix. One environment
 variable can define one token and the related user. For example, the `run-server.sh` script, 
 which is a part of this codebase, defines this environment variable:
-<br/>
-`SMS_ENV_TOKEN_1="TOKEN_READ_FROM_ENVIRONMENT environment-demo-user USER"`
-<br/>
-This variable together with the above configuration induce the server to recognize one token of the
+
+    `SMS_ENV_TOKEN_1="TOKEN_READ_FROM_ENVIRONMENT environment-demo-user USER"`
+
+    This variable together with the above configuration induce the server to recognize one token of the
 value _TOKEN_READ_FROM_ENVIRONMENT_, whilst the name of the mapped user will be _environment-demo-user_.
 The role assigned to the user is _USER_.
 
@@ -176,6 +176,6 @@ bash client-cmds.sh
 Each successfully processed `curl` request should end up with the response message printed out to the terminal.
 These are just plain english statements, which begin with the pattern:
 
-```bash
+```
 Well done .....
 ``` 
